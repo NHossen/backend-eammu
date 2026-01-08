@@ -34,7 +34,7 @@ app.get('/api/city-search', async (req, res) => {
 // ২. ফ্লাইট সার্চ রুট (Round Trip + Adults + Children)
 app.get('/api/search-flights', async (req, res) => {
   try {
-    const { origin, destination, date, returnDate, adults, children } = req.query;
+    const { origin, destination, date, returnDate, adults, children, infants, cabinClass } = req.query;
     
     const extractCode = (str) => {
       if (str.includes('(')) return str.split('(')[1].split(')')[0].toUpperCase();
@@ -47,7 +47,9 @@ app.get('/api/search-flights', async (req, res) => {
       departureDate: date,
       adults: adults || 1,
       children: children || 0,
-      max: 15,
+      infants: infants || 0, // ইনফ্যান্ট যোগ করা হলো
+      travelClass: (cabinClass || 'ECONOMY').toUpperCase(),
+      max: 20,
       currencyCode: 'USD' // আপনি চাইলে BDT ট্রাই করতে পারেন যদি আপনার API সাপোর্ট করে
     };
 
