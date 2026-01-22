@@ -2,6 +2,7 @@ import express from 'express';
 import Amadeus from 'amadeus';
 import cors from 'cors';
 import dotenv from 'dotenv';
+import process from 'node:process';
 
 dotenv.config();
 
