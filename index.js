@@ -67,5 +67,9 @@ app.get('/api/search-flights', async (req, res) => {
   }
 });
 
-const PORT = 5000;
-app.listen(PORT, () => console.log(`🚀 Server runninng on http://localhost:${PORT}`));
+// Render এবং লোকাল এনভায়রনমেন্ট উভয়ের জন্যই পারফেক্ট
+const PORT = process.env.PORT || 10000; 
+
+app.listen(PORT, '0.0.0.0', () => {
+    console.log(`🚀 Server is listening on port ${PORT}`);
+});
