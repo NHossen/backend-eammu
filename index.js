@@ -2,8 +2,6 @@ import express from 'express';
 import Amadeus from 'amadeus';
 import cors from 'cors';
 import dotenv from 'dotenv';
-import process from 'node:process';
-
 
 dotenv.config();
 
@@ -68,8 +66,5 @@ app.get('/api/search-flights', async (req, res) => {
   }
 });
 
-const PORT = process.env.PORT || 10000; 
-
-app.listen(PORT, '0.0.0.0', () => {
-    console.log(`🚀 Server running on port ${PORT}`);
-});
+const PORT = 5000;
+app.listen(PORT, () => console.log(`🚀 Server runninng on http://localhost:${PORT}`));
